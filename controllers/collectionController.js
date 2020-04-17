@@ -4,11 +4,11 @@ const router = express.Router();
 
 const db = require("../models");
 
-router.get("/collections", function (req, res) {
+router.get("/collect", function (req, res) {
   db.Collection.findAll()
     .then((collections) => {
       console.log(collections);
-      res.render("all-collections", { collections });
+      res.render("collections", { collections });
     })
     .catch((err) => {
       console.log(err);
@@ -19,7 +19,7 @@ router.get("/collections", function (req, res) {
     });
 });
 
-router.get("/api/collections", function (req, res) {
+router.get("/api/collect", function (req, res) {
   db.Collection.findAll()
     .then((collections) => {
       console.log(collections);

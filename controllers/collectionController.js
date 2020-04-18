@@ -54,7 +54,7 @@ router.get("/api/comics/:id", function (req, res) {
     });
 });
 
-router.post("/api/collections", function (req, res) {
+router.post("/api/collections/comics", function (req, res) {
   const newComic = {
     category: req.body.category.trim(),
     publisher: req.body.publisher.trim(),
@@ -66,7 +66,7 @@ router.post("/api/collections", function (req, res) {
     .then((newComic) => {
       console.log(newComic);
       res.json({
-        message: "Successfully created new collection",
+        message: "Successfully created new comic",
         success: true,
       });
     })

@@ -26,12 +26,15 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 const collectionRoutes = require("./controllers/collectionController.js");
 const userRoutes = require("./controllers/userController.js");
+// const cuesRoutes = require(".controllers/cuesController.js");
 app.use(collectionRoutes);
 app.use(userRoutes);
+// app.use(cuesRoutes);
 
 app.get("/", function (req, res) {
   res.render("index");
 });
+
 
 app.get("/api/config", function (req, res) {
   res.json({

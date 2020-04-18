@@ -37,23 +37,25 @@
 </table>
 </div>
 
-<div class="ui grid" id="inputComic" style="justify-content: space-evenly">
+<div class="ui grid"  style="justify-content: space-evenly">
   <div class="three wide column">
     <div>
-        <div class="ui form">
+        <form class="ui form" id="new-comic-form">
           <div class="field">
             <label>Category</label>
-            <input type="text">
+            <input type="text" id="category">
             <label>Publisher</label>
-            <input type="text">
+            <input type="text" id="publisher">
             <label>Title</label>
-            <input type="text">
+            <input type="text" id="title">
             <label>Issue</label>
-            <input type="text">
+            <input type="text" id="issue">
             <label>Quality</label>
-            <input type="text">
+            <input type="text" id="quality">
           </div>
-      </div>
+      <br>
+      <button class="ui button" type="submit">Submit</button>
+      </form> 
     </div>
   </div>
   <div class="twelve wide column">
@@ -68,11 +70,11 @@
   <tbody>
     {{#each comics}}
     <tr>
-      <td data-label="Category">{{category}}</td>
-      <td data-label="Publisher">{{publisher}}</td>
-      <td data-label="Title">{{title}}</td>
-      <td data-label="Issue">{{issue}}</td>
-      <td data-label="Quality">{{quality}}</td>
+      <td data-label="Category" id="comicCategory">{{category}}</td>
+      <td data-label="Publisher" id="comicPublisher">{{publisher}}</td>
+      <td data-label="Title" id="comicTitle">{{title}}</td>
+      <td data-label="Issue" id="comicIssue">{{issue}}</td>
+      <td data-label="Quality" id="comicQuality">{{quality}}</td>
     </tr>
     {{/each}}
   </tbody>
@@ -80,6 +82,28 @@
   </div>
 
 </div>
+
+<script type="text/javascript">
+$("#new-comic-form").on("submit", function (event) {
+        event.preventDefault();
+        console.log("you clicked me")
+        console.log($("#category").val())
+        console.log($("#publisher").val())
+        console.log($("#title").val())
+        console.log($("#issue").val())
+        console.log($("#quality").val())
+
+        const newComic = {
+            category: $("#category").val(),
+            publisher: $("#publisher").val(),
+            title: $("#title").val(),
+            issue: $("#issue").val(),
+            quality: $("#quality").val()
+        }
+        console.log(newComic)
+        
+});
+</script>
 
 
 

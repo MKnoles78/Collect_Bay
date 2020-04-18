@@ -5,10 +5,10 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/collect", function (req, res) {
-  db.Collection.findAll()
-    .then((collections) => {
-      console.log(collections);
-      res.render("collections", { collections });
+  db.Comic.findAll()
+    .then((comics) => {
+      console.log(comics);
+      res.render("collections", { comics });
     })
     .catch((err) => {
       console.log(err);
@@ -20,10 +20,10 @@ router.get("/collect", function (req, res) {
 });
 
 router.get("/api/collect", function (req, res) {
-  db.Collection.findAll()
-    .then((collections) => {
-      console.log(collections);
-      res.json(collections);
+  db.Comic.findAll()
+    .then((comics) => {
+      console.log(comics);
+      res.json(comics);
     })
     .catch((err) => {
       console.log(err);
@@ -34,16 +34,16 @@ router.get("/api/collect", function (req, res) {
     });
 });
 
-router.get("/api/collections/:id", function (req, res) {
-  db.Collection.findOne({
+router.get("/api/comics/:id", function (req, res) {
+  db.Comic.findOne({
     where: {
       id: req.params.id,
     },
-    include: [{ model: db.User }],
+    // include: [{ model: db.User }],
   })
-    .then((collections) => {
-      console.log(collections);
-      res.json(collections);
+    .then((comics) => {
+      console.log(comics);
+      res.json(comics);
     })
     .catch((err) => {
       console.log(err);
@@ -55,16 +55,16 @@ router.get("/api/collections/:id", function (req, res) {
 });
 
 router.post("/api/collections", function (req, res) {
-  const newCollection = {
-    name: req.body.name.trim(),
+  const newComic = {
     category: req.body.category.trim(),
-    itemNum: req.body.itemNum,
-    createdAt: req.body.createdAt.trim(),
-    updatedAt: req.body.updatedAt.trim(),
+    publisher: req.body.publisher.trim(),
+    title: req.body.title.trim(),
+    issue: req.body.issue,
+    quality: req.body.quality.trim(),
   };
-  db.Collection.create(newCollection)
-    .then((newCollection) => {
-      console.log(newCollection);
+  db.Comic.create(newComic)
+    .then((newComic) => {
+      console.log(newComic);
       res.json({
         message: "Successfully created new collection",
         success: true,

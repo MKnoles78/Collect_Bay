@@ -26,22 +26,14 @@
 <table class="ui blue inverted striped table">
   <thead>
     <tr>
-      <th scope="col">Collection type</th>
-      <th scope="col">Number of items in each collection</th>
-      <th scope="col">ID</th>
+      <th scope="col">Comics</th>
+      <th scope="col">Cards</th>
+      <th scope="col">Records</th>
+      <th scope="col">Stamps</th>
+      <th scope="col">Wines</th>
+      <th scope="col">Toys</th>
     </tr>
   </thead>
-  <tbody>    
-
-    {{#each comics}}
-    <tr>
-      <td scope="row">{{title}}</td>
-      <td>{{collectionCount}}</td>
-      <td>{{id}}</td>
-    </tr>
-    {{/each}}
-
-  </tbody>
 </table>
 </div>
 
@@ -74,14 +66,15 @@
     <th>Quality</th>
   </tr></thead>
   <tbody>
+    {{#each comics}}
     <tr>
-      <td data-label="Category">Comics</td>
-      <td data-label="Publisher">Marvel</td>
-      <td data-label="Title">AMS</td>
-      <td data-label="Issue">361</td>
-      <td data-label="Quality">Mint</td>
+      <td data-label="Category">{{category}}</td>
+      <td data-label="Publisher">{{publisher}}</td>
+      <td data-label="Title">{{title}}</td>
+      <td data-label="Issue">{{issue}}</td>
+      <td data-label="Quality">{{quality}}</td>
     </tr>
-    </tr>
+    {{/each}}
   </tbody>
 </table> 
   </div>

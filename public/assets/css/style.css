@@ -14,3 +14,11 @@
     color: white;
 } */
 
+.table-buttons{
+    opacity: 70%;  
+}
+.ui.button{
+background-color: #2a5bfd;
+text-emphasis: bold;
+color: white
+}

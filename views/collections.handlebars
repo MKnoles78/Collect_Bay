@@ -25,14 +25,14 @@
 <div class="ui raised very padded text container segment">
 <table class="ui blue inverted striped table">
   <thead>
-    <tr>
-      <th scope="col">Comics</th>
-      <th scope="col">Cards</th>
-      <th scope="col">Records</th>
-      <th scope="col">Stamps</th>
-      <th scope="col">Wines</th>
-      <th scope="col">Toys</th>
-    </tr>
+    <div class="table-buttons" style="text-align: center">
+      <button class="ui button" scope="col">Comics</button>
+      <button class="ui button" scope="col">Cards</button>
+      <button class="ui button" scope="col">Records</button>
+      <button class="ui button" scope="col">Stamps</button>
+      <button class="ui button" scope="col">Wines</button>
+      <button class="ui button" scope="col">Toys</button>
+    </div>
   </thead>
 </table>
 </div>
@@ -86,13 +86,6 @@
 <script type="text/javascript">
 $("#new-comic-form").on("submit", function (event) {
         event.preventDefault();
-        console.log("you clicked me")
-        console.log($("#category").val())
-        console.log($("#publisher").val())
-        console.log($("#title").val())
-        console.log($("#issue").val())
-        console.log($("#quality").val())
-
         const newComic = {
             category: $("#category").val(),
             publisher: $("#publisher").val(),

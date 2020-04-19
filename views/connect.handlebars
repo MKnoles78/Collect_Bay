@@ -15,3 +15,57 @@
   </div>
 
 </div>
+{{!-- <div class="ui raised very padded text container segment">
+<table class="ui blue inverted striped table">
+  <thead>
+    <div class="table-buttons" style="text-align: center">
+      <a href="/collect"><button class="ui button" scope="col">Comics</button></a>
+      <a href="/cards"><button class="ui button" scope="col">Cards</button></a>
+      <a href="/records"><button class="ui button" scope="col">Records</button></a>
+      <a href="/stamps"><button class="ui button" scope="col">Stamps</button></a>
+      <a href="/wines"><button class="ui button" scope="col">Wines</button></a>
+      <a href="/toys"><button class="ui button" scope="col">Toys</button></a>
+    </div>
+  </thead>
+</table>
+</div> --}}
+<div id="connect-div">
+  <div class="ui grid"  style="justify-content: space-evenly">
+    <div class="three wide column">
+      <div>
+          <form class="ui form" id="new-connect-form">
+            <div class="field">
+              <label>Author</label>
+              <input type="text" id="author">
+                <div class="field">
+                <label>Message</label>
+                <textarea type="text" id="body"></textarea>
+              </div>
+            </div>
+        <br>
+        <button class="ui button" type="submit">Submit</button>
+        </form> 
+      </div>
+    </div>
+  <div class="twelve wide column">
+         <table class="ui celled table">
+          <thead>
+              <tr>
+              <th>Author</th>
+              <th>Message</th>
+              <th>Delete</th>
+            </tr></thead>
+              <tbody>
+              {{#each connects}}
+                <tr>
+                  <td data-label="Author" id="connectAuthor">{{author}}</td>
+                  <td data-label="Body" id="connectBody">{{body}}</td>
+                  <td><button class="circular ui icon button delete-connect" data-id={{{id}}}><i class="icon trash"></i></button></td>
+                </tr>
+              {{/each}}
+              </tbody>
+          </table> 
+  </div>
+
+</div>
+</div>

@@ -34,4 +34,23 @@ $( document ).ready(function() {
       }
     });
   });
+
+  $(".delete-comic").on("click", function (event){
+    console.log("you clicked me");
+    const confirmDelete = confirm("Are you sure you want to delete this item?");
+    if (confirmDelete) {
+      console.log($(this).data("id"));
+      const idToDelete = $(this).data("id");
+      $.ajax({
+        url: `/api/collections/comics/${idToDelete}`,
+        method: "DELETE"
+      }).done((response) => {
+        console.log(response);
+        if (response.success) {
+          alert(response.message);
+          location.reload();
+        }
+      });
+    }
+  });
 });

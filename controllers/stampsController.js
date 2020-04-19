@@ -75,5 +75,34 @@ router.post("/api/collections/stamps", function (req, res) {
 
     });
 });
+router.delete("/api/collections/stamps/:id", function (req, res) {
+  db.Stamp.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((numberOfDestroyedRows) => {
+      console.log(numberOfDestroyedRows);
+      if (numberOfDestroyedRows === 1) {
+        res.json({
+          success: true,
+          message: `Successfully deleted stamp: ${req.params.id}`,
+        });
+      } else {
+        res.status(500);
+        res.json({
+          success: false,
+          message: `A problem occurred deleting stamp: ${req.params.id}`,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500);
+      res.json({
+        success: false,
+      });
+    });
+});
 
 module.exports = router;

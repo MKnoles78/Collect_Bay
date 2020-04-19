@@ -57,6 +57,7 @@
               <th>Artist</th>
               <th>Album</th>
               <th>Quality</th>
+              <th>Delete</th>
             </tr></thead>
               <tbody>
               {{#each records}}
@@ -65,6 +66,7 @@
                   <td data-label="Artist">{{artist}}</td>
                   <td data-label="Album">{{album}}</td>
                   <td data-label="Quality">{{quality}}</td>
+                  <td><button class="circular ui icon button delete-record" data-id={{{id}}}><i class="icon trash"></i></button></td>
                 </tr>
               {{/each}}
               </tbody>

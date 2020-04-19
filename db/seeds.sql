@@ -35,7 +35,3 @@ VALUES ("Wines", "Mondavi", "Red", "Merlot", 1985, 90);
 
 select * from wines;
  
-INSERT INTO connects (author, body)
-VALUES ("Mike", "TEXT");
-
-select * from connects;

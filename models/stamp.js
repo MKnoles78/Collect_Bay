@@ -20,12 +20,6 @@ module.exports = function (sequelize, DataTypes){
   { timestamps: false }
   );
 
-  // Stamp.associate = models => {
-  //   Stamp.belongsTo(models.Collection, {
-  //     as: "stamps"
-  //   });
-  // };
-
   return Stamp;
 };
 

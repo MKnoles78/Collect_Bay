@@ -30,12 +30,14 @@ const cardsRoutes = require("./controllers/cardsController.js");
 const recordsRoutes = require("./controllers/recordsController.js");
 const stampsRoutes = require("./controllers/stampsController.js");
 const winesRoutes = require("./controllers/winesController.js");
+const toysRoutes = require("./controllers/toysController.js");
 // const cuesRoutes = require(".controllers/cuesController.js");
 app.use(comicsRoutes);
 app.use(cardsRoutes);
 app.use(recordsRoutes);
 app.use(stampsRoutes);
 app.use(winesRoutes);
+app.use(toysRoutes);
 app.use(userRoutes);
 // app.use(cuesRoutes);
 

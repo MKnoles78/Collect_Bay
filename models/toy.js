@@ -19,14 +19,14 @@ module.exports = function (sequelize, DataTypes){
       type: DataTypes.STRING,
       allowNull: false}
   });
-  Toy.associate = models => {
-    Toy.belongsTo(models.Collection, {
-      as: "toys"
-    },
-    { timestamps: false }
-    );
+  // Toy.associate = models => {
+  //   Toy.belongsTo(models.Collection, {
+  //     as: "toys"
+  //   },
+  //   { timestamps: false }
+  //   );
 
-  };
+  // };
   return Toy;
 };
 

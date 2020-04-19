@@ -74,5 +74,34 @@ router.post("/api/collections/cards", function (req, res) {
       console.log(err);
     });
 });
+router.delete("/api/collections/cards/:id", function (req, res) {
+  db.Card.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((numberOfDestroyedRows) => {
+      console.log(numberOfDestroyedRows);
+      if (numberOfDestroyedRows === 1) {
+        res.json({
+          success: true,
+          message: `Successfully deleted card: ${req.params.id}`,
+        });
+      } else {
+        res.status(500);
+        res.json({
+          success: false,
+          message: `A problem occurred deleting card: ${req.params.id}`,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500);
+      res.json({
+        success: false,
+      });
+    });
+});
 
 module.exports = router;

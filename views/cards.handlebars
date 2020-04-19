@@ -61,6 +61,7 @@
               <th>Player</th>
               <th>Year</th>
               <th>Quality</th>
+              <th>Delete</th>
             </tr></thead>
               <tbody>
               {{#each cards}}
@@ -70,6 +71,7 @@
                   <td data-label="Player">{{player}}</td>
                   <td data-label="Year">{{year}}</td>
                   <td data-label="Quality">{{quality}}</td>
+                  <td><button class="circular ui icon button delete-card" data-id={{{id}}}><i class="icon trash"></i></button></td>
                 </tr>
               {{/each}}
               </tbody>

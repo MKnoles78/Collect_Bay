@@ -76,5 +76,34 @@ router.post("/api/collections/wines", function (req, res) {
 
     });
 });
+router.delete("/api/collections/wines/:id", function (req, res) {
+  db.Wine.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((numberOfDestroyedRows) => {
+      console.log(numberOfDestroyedRows);
+      if (numberOfDestroyedRows === 1) {
+        res.json({
+          success: true,
+          message: `Successfully deleted wine: ${req.params.id}`,
+        });
+      } else {
+        res.status(500);
+        res.json({
+          success: false,
+          message: `A problem occurred deleting wine: ${req.params.id}`,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500);
+      res.json({
+        success: false,
+      });
+    });
+});
 
 module.exports = router;

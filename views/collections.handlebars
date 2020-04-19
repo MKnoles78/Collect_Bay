@@ -60,6 +60,7 @@
               <th>Title</th>
               <th>Issue</th>
               <th>Quality</th>
+              <th>Delete</th>
             </tr></thead>
               <tbody>
               {{#each comics}}
@@ -69,6 +70,7 @@
                   <td data-label="Title" id="comicTitle">{{title}}</td>
                   <td data-label="Issue" id="comicIssue">{{issue}}</td>
                   <td data-label="Quality" id="comicQuality">{{quality}}</td>
+                  <td><button class="circular ui icon button delete-comic" data-id={{{id}}}><i class="icon trash"></i></button></td>
                 </tr>
               {{/each}}
               </tbody>

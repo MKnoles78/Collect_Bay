@@ -1,0 +1,61 @@
+<div class="ui massive menu">
+  <a class="item" href="/"><h1 class="ui white inverted header">CollectBay</h1></a>
+
+
+  <div class="right menu">
+    <a class="item" href="/collect"><h4 class="ui white inverted header">Collect</h4></a>
+    <a class="item" href="/ebay"><h4 class="ui white inverted header">Enhance</h4></a>
+    <a class="item" href="/connect"><h4 class="ui white inverted header">Connect</h4></a>
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search..." />
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="ui piled segment center aligned">
+    <h1 class="ui header center aligned">eBay Search</h1>
+    <h4 class="ui header center aligned">Search eBay for your favorite collections</h4>
+    <div class="ui input">
+        <input id="search-term" type="text" placeholder="Search Term ...">
+        <button id="search-ebay" class="ui right labeled primary icon button">
+            <i class="search icon"></i>Search</button>
+    </div>
+</div>
+
+<div class="ui segment">
+    <h1>Search results: </h1>
+
+    <div class="ui four column grid">
+        {{#each ebayCollections}}
+        <div class="column">
+            <div class="ui fluid card">
+                <div class="image">
+                    <img src="{{galleryURL}}">
+                </div>
+                <div class="content">
+                    <a class="header">{{title}}</a>
+                    <hr>
+                    <p>Item ID: {{itemId}}</p>
+                    <hr>
+                    <p>Category: {{primaryCategory.[0].categoryName}}<p>
+                    <hr>
+                    <p>Location: {{location}}</h4>
+                    <hr>
+                    <p>Price (USD): ${{sellingStatus.[0].currentPrice.[0].__value__}}</p>
+                    <hr>
+                    <p>Ebay Link: <a href="{{viewItemURL}}">{{viewItemURL}}</a></p>
+                    <hr>
+                    <button class="ui secondary button add-to-collection" data-itemid="{{itemId}}" data-title="{{title}}"
+                        data-category="{{primaryCategory.[0].categoryName}}" data-location="{{location}}"
+                        data-price="{{sellingStatus.[0].currentPrice.[0].__value__}}"
+                        data-ebayurl="{{viewItemURL}}"
+                        data-image={{galleryURL}}>Add Collection</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

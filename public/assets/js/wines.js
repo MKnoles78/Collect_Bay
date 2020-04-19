@@ -1,4 +1,5 @@
 $( document ).ready(function(){
+
   $("#new-wine-form").on("submit", function (event) {
     event.preventDefault();
     console.log("you clicked me");

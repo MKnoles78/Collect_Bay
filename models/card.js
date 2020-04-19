@@ -27,11 +27,11 @@ module.exports = function (sequelize, DataTypes){
   { timestamps: false }
   );
 
-  Card.associate = models => {
-    Card.belongsTo(models.Collection, {
-      as: "cards"
-    });
-  };
+  // Card.associate = models => {
+  //   Card.belongsTo(models.Collection, {
+  //     as: "cards"
+  //   });
+  // };
 
   return Card;
 };

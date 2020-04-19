@@ -26,98 +26,64 @@
 <table class="ui blue inverted striped table">
   <thead>
     <div class="table-buttons" style="text-align: center">
-      <button class="ui button" scope="col">Comics</button>
-      <button class="ui button" scope="col">Cards</button>
-      <button class="ui button" scope="col">Records</button>
-      <button class="ui button" scope="col">Stamps</button>
-      <button class="ui button" scope="col">Wines</button>
-      <button class="ui button" scope="col">Toys</button>
+      <button class="ui button" scope="col" id="comicBtn">Comics</button>
+      <a href="/cards"><button class="ui button" scope="col" id="cardBtn">Cards</button></a>
+      <button class="ui button" scope="col" id="recordBtn">Records</button>
+      <button class="ui button" scope="col" id="stampBtn">Stamps</button>
+      <button class="ui button" scope="col" id="wineBtn">Wines</button>
+      <button class="ui button" scope="col" id="toyBtn">Toys</button>
     </div>
   </thead>
 </table>
 </div>
-
-<div class="ui grid"  style="justify-content: space-evenly">
-  <div class="three wide column">
-    <div>
-        <form class="ui form" id="new-comic-form">
-          <div class="field">
-            <label>Category</label>
-            <input type="text" id="category">
-            <label>Publisher</label>
-            <input type="text" id="publisher">
-            <label>Title</label>
-            <input type="text" id="title">
-            <label>Issue</label>
-            <input type="text" id="issue">
-            <label>Quality</label>
-            <input type="text" id="quality">
-          </div>
-      <br>
-      <button class="ui button" type="submit">Submit</button>
-      </form> 
+<div id="comic-div">
+  <div class="ui grid"  style="justify-content: space-evenly">
+    <div class="three wide column">
+      <div>
+          <form class="ui form" id="new-comic-form">
+            <div class="field">
+              <label>Category</label>
+              <input type="text" id="category">
+              <label>Publisher</label>
+              <input type="text" id="publisher">
+              <label>Title</label>
+              <input type="text" id="title">
+              <label>Issue</label>
+              <input type="text" id="issue">
+              <label>Quality</label>
+              <input type="text" id="quality">
+            </div>
+        <br>
+        <button class="ui button" type="submit">Submit</button>
+        </form> 
+      </div>
     </div>
-  </div>
   <div class="twelve wide column">
          <table class="ui celled table">
-  <thead>
-    <tr><th>Category</th>
-    <th>Publisher</th>
-    <th>Title</th>
-    <th>Issue</th>
-    <th>Quality</th>
-  </tr></thead>
-  <tbody>
-    {{#each comics}}
-    <tr>
-      <td data-label="Category" id="comicCategory">{{category}}</td>
-      <td data-label="Publisher" id="comicPublisher">{{publisher}}</td>
-      <td data-label="Title" id="comicTitle">{{title}}</td>
-      <td data-label="Issue" id="comicIssue">{{issue}}</td>
-      <td data-label="Quality" id="comicQuality">{{quality}}</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table> 
+          <thead>
+              <tr><th>Category</th>
+              <th>Publisher</th>
+              <th>Title</th>
+              <th>Issue</th>
+              <th>Quality</th>
+            </tr></thead>
+              <tbody>
+              {{#each comics}}
+                <tr>
+                  <td data-label="Category" id="comicCategory">{{category}}</td>
+                  <td data-label="Publisher" id="comicPublisher">{{publisher}}</td>
+                  <td data-label="Title" id="comicTitle">{{title}}</td>
+                  <td data-label="Issue" id="comicIssue">{{issue}}</td>
+                  <td data-label="Quality" id="comicQuality">{{quality}}</td>
+                </tr>
+              {{/each}}
+              </tbody>
+          </table> 
   </div>
 
 </div>
+</div>
 
-<script type="text/javascript">
-$("#new-comic-form").on("submit", function (event) {
-        event.preventDefault();
-        const newComic = {
-            category: $("#category").val(),
-            publisher: $("#publisher").val(),
-            title: $("#title").val(),
-            issue: $("#issue").val(),
-            quality: $("#quality").val()
-        }
-        console.log(newComic)
-       $.ajax({
-            url: "/api/collections/comics",
-            method: "POST",
-            data: {
-                category: $("#category").val(),
-                publisher: $("#publisher").val(),
-                title: $("#title").val(),
-                issue: $("#issue").val(),
-                quality: $("#quality").val(),
-            }
-        }).done(function (response) {
-            console.log(response);
-            if (response.success) {
-                $("#category").val("")
-                $("#publisher").val("")
-                $("#title").val("")
-                $("#issue").val("")
-                $("#quality").val("")
-                setTimeout(function () { window.location.replace("/collect"); }, 100);
-            }
-        })
-        
-});
-</script>
 
 
 

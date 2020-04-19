@@ -24,10 +24,12 @@ app.engine("handlebars", exphbs( {
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-const collectionRoutes = require("./controllers/collectionController.js");
+const comicsRoutes = require("./controllers/comicsController.js");
 const userRoutes = require("./controllers/userController.js");
+const cardsRoutes = require("./controllers/cardsController.js");
 // const cuesRoutes = require(".controllers/cuesController.js");
-app.use(collectionRoutes);
+app.use(comicsRoutes);
+app.use(cardsRoutes);
 app.use(userRoutes);
 // app.use(cuesRoutes);
 

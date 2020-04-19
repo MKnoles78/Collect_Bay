@@ -1,0 +1,142 @@
+
+<div class="ui blue inverted massive menu">
+      <a class="item">
+        CollectBay
+      </a>
+
+      <div class="right menu">
+        <a class="item" href="/collect">
+          Collect
+        </a>
+        <a class="item" href="/cues">
+          Cues
+        </a>
+        <a class="item" href="/connect">
+          Connect
+        </a>
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search..." />
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="ui raised very padded text container segment">
+<table class="ui blue inverted striped table">
+  <thead>
+    <div class="table-buttons" style="text-align: center">
+      <button class="ui button" scope="col" id="comicBtn">Comics</button>
+      <a href="/card"><button class="ui button" scope="col" id="cardBtn">Cards</button></a>
+      <button class="ui button" scope="col" id="recordBtn">Records</button>
+      <button class="ui button" scope="col" id="stampBtn">Stamps</button>
+      <button class="ui button" scope="col" id="wineBtn">Wines</button>
+      <button class="ui button" scope="col" id="toyBtn">Toys</button>
+    </div>
+  </thead>
+</table>
+</div>
+
+<div id="card-div">
+  <div class="ui grid"  style="justify-content: space-evenly">
+    <div class="three wide column">
+      <div>
+          <form class="ui form" id="new-card-form">
+            <div class="field">
+              <label>Category</label>
+              <input type="text" id="cardCategory">
+              <label>Manufacturer</label>
+              <input type="text" id="cardManufacturer">
+              <label>Player</label>
+              <input type="text" id="cardPlayer">
+              <label>Year</label>
+              <input type="text" id="cardYear">
+              <label>Quality</label>
+              <input type="text" id="cardQuality">
+            </div>
+        <br>
+        <button class="ui button" type="submit">Submit</button>
+        </form> 
+      </div>
+    </div>
+  <div class="twelve wide column">
+         <table class="ui celled table">
+          <thead>
+              <tr><th>Category</th>
+              <th>Manufacturer</th>
+              <th>Player</th>
+              <th>Year</th>
+              <th>Quality</th>
+            </tr></thead>
+              <tbody>
+              {{#each cards}}
+                <tr>
+                  <td data-label="Category">{{category}}</td>
+                  <td data-label="Manufacturer">{{manufacturer}}</td>
+                  <td data-label="Player">{{player}}</td>
+                  <td data-label="Year">{{year}}</td>
+                  <td data-label="Quality">{{quality}}</td>
+                </tr>
+              {{/each}}
+              </tbody>
+          </table> 
+  </div>
+
+</div>
+</div>
+
+
+{{!-- <script>
+  
+  function tableSwitch() {
+   var comicTable = document.getElementById("comic-div"); 
+   var cardTable = document.getElementById("card-div");
+
+   comicTable.style.display = (
+       comicTable.style.display == "none" ? "block" : "none"); 
+   cardTable.style.display = (
+       cardTable.style.display == "none" ? "block" : "none"); 
+}
+</script> --}}
+<script>
+$("#new-card-form").on("submit", function (event) {
+    event.preventDefault();
+    console.log("you clicked me")
+    const newCard = {
+      category: $("#cardCategory").val(),
+      publisher: $("#cardManufacturer").val(),
+      title: $("#cardPlayer").val(),
+      issue: $("#cardYear").val(),
+      quality: $("#cardQuality").val()
+    };
+    console.log($("#cardCategory").val())
+    console.log(newCard),
+    $.ajax({
+      url: "/api/collections/cards",
+      method: "POST",
+      data: {
+        category: $("#cardCategory").val(),
+        manufacturer: $("#cardManufacturer").val(),
+        player: $("#cardPlayer").val(),
+        year: $("#cardYear").val(),
+        quality: $("#cardQuality").val(),
+      }
+    }).done(function (response) {
+      console.log(response);
+      if (response.success) {
+        $("#cardCategory").val(""),
+        $("#cardManufacturer").val(""),
+        $("#cardPlayer").val(""),
+        $("#cardYear").val(""),
+        $("#cardQuality").val(""),
+        setTimeout(function () {
+          window.location.replace("/cards");
+        }, 100);
+      }
+    });
+  });
+
+
+</script>
+
+

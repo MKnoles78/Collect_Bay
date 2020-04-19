@@ -4,11 +4,11 @@ const router = express.Router();
 
 const db = require("../models");
 
-router.get("/collect", function (req, res) {
-  db.Comic.findAll()
-    .then((comics) => {
-      console.log(comics);
-      res.render("collections", { comics });
+router.get("/cards", function (req, res) {
+  db.Card.findAll()
+    .then((cards) => {
+      console.log(cards);
+      res.render("cards", { cards });
     })
     .catch((err) => {
       console.log(err);
@@ -19,11 +19,11 @@ router.get("/collect", function (req, res) {
     });
 });
 
-router.get("/api/collect", function (req, res) {
-  db.Comic.findAll()
-    .then((comics) => {
-      console.log(comics);
-      res.json(comics);
+router.get("/api/cards", function (req, res) {
+  db.Card.findAll()
+    .then((cards) => {
+      console.log(cards);
+      res.json(cards);
     })
     .catch((err) => {
       console.log(err);
@@ -34,16 +34,16 @@ router.get("/api/collect", function (req, res) {
     });
 });
 
-router.get("/api/comics/:id", function (req, res) {
-  db.Comic.findOne({
+router.get("/api/collections/cards:id", function (req, res) {
+  db.Card.findOne({
     where: {
       id: req.params.id,
     },
     // include: [{ model: db.User }],
   })
-    .then((comics) => {
-      console.log(comics);
-      res.json(comics);
+    .then((cards) => {
+      console.log(cards);
+      res.json(cards);
     })
     .catch((err) => {
       console.log(err);
@@ -54,19 +54,19 @@ router.get("/api/comics/:id", function (req, res) {
     });
 });
 
-router.post("/api/collections/comics", function (req, res) {
-  const newComic = {
+router.post("/api/collections/cards", function (req, res) {
+  const newCard = {
     category: req.body.category.trim(),
-    publisher: req.body.publisher.trim(),
-    title: req.body.title.trim(),
-    issue: req.body.issue,
+    manufacturer: req.body.manufacturer.trim(),
+    player: req.body.player.trim(),
+    year: req.body.year,
     quality: req.body.quality.trim(),
   };
-  db.Comic.create(newComic)
-    .then((newComic) => {
-      console.log(newComic);
+  db.Card.create(newCard)
+    .then((newCard) => {
+      console.log(newCard);
       res.json({
-        message: "Successfully created new comic",
+        message: "Successfully created new card",
         success: true,
       });
     })

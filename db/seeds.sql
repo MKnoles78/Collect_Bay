@@ -21,7 +21,7 @@ VALUES ("Records","Prince", "Purple Rain", "Mint");
 select * from records;
 
 INSERT INTO stamps (category, origincountry, class, postmark, quality)
-VALUES ("Stamps", "United States", "Commerative", TRUE, "Fair");
+VALUES ("Stamps", "United States", "Commerative", "TRUE", "Fair");
 
 select * from stamps;
 

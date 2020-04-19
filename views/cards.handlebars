@@ -1,4 +1,3 @@
-
 <div class="ui blue inverted massive menu">
       <a class="item">
         CollectBay
@@ -25,7 +24,7 @@
 <div class="ui raised very padded text container segment">
 <table class="ui blue inverted striped table">
   <thead>
-    <div class="table-buttons" style="text-align: center">
+  <div class="table-buttons" style="text-align: center">
       <a href="/collect"><button class="ui button" scope="col">Comics</button></a>
       <a href="/cards"><button class="ui button" scope="col">Cards</button></a>
       <a href="/records"><button class="ui button" scope="col">Records</button></a>
@@ -36,22 +35,23 @@
   </thead>
 </table>
 </div>
-<div id="comic-div">
+
+<div id="card-div">
   <div class="ui grid"  style="justify-content: space-evenly">
     <div class="three wide column">
       <div>
-          <form class="ui form" id="new-comic-form">
+          <form class="ui form" id="new-card-form">
             <div class="field">
               <label>Category</label>
-              <input type="text" id="category">
-              <label>Publisher</label>
-              <input type="text" id="publisher">
-              <label>Title</label>
-              <input type="text" id="title">
-              <label>Issue</label>
-              <input type="text" id="issue">
+              <input type="text" id="cardCategory">
+              <label>Manufacturer</label>
+              <input type="text" id="cardManufacturer">
+              <label>Player</label>
+              <input type="text" id="cardPlayer">
+              <label>Year</label>
+              <input type="text" id="cardYear">
               <label>Quality</label>
-              <input type="text" id="quality">
+              <input type="text" id="cardQuality">
             </div>
         <br>
         <button class="ui button" type="submit">Submit</button>
@@ -62,19 +62,19 @@
          <table class="ui celled table">
           <thead>
               <tr><th>Category</th>
-              <th>Publisher</th>
-              <th>Title</th>
-              <th>Issue</th>
+              <th>Manufacturer</th>
+              <th>Player</th>
+              <th>Year</th>
               <th>Quality</th>
             </tr></thead>
               <tbody>
-              {{#each comics}}
+              {{#each cards}}
                 <tr>
-                  <td data-label="Category" id="comicCategory">{{category}}</td>
-                  <td data-label="Publisher" id="comicPublisher">{{publisher}}</td>
-                  <td data-label="Title" id="comicTitle">{{title}}</td>
-                  <td data-label="Issue" id="comicIssue">{{issue}}</td>
-                  <td data-label="Quality" id="comicQuality">{{quality}}</td>
+                  <td data-label="Category">{{category}}</td>
+                  <td data-label="Manufacturer">{{manufacturer}}</td>
+                  <td data-label="Player">{{player}}</td>
+                  <td data-label="Year">{{year}}</td>
+                  <td data-label="Quality">{{quality}}</td>
                 </tr>
               {{/each}}
               </tbody>
@@ -84,6 +84,19 @@
 </div>
 </div>
 
+
+{{!-- <script>
+  
+  function tableSwitch() {
+   var comicTable = document.getElementById("comic-div"); 
+   var cardTable = document.getElementById("card-div");
+
+   comicTable.style.display = (
+       comicTable.style.display == "none" ? "block" : "none"); 
+   cardTable.style.display = (
+       cardTable.style.display == "none" ? "block" : "none"); 
+}
+</script> --}}
 
 
 

@@ -2,9 +2,6 @@ module.exports = function (sequelize, DataTypes){
   const Wine = sequelize.define("Wine", {
     category: {
       type: DataTypes.STRING,
-      validate: {
-        equals: "Wines"
-      }
     },
     vineyard: {
       type: DataTypes.STRING,
@@ -30,10 +27,10 @@ module.exports = function (sequelize, DataTypes){
   { timestamps: false }
   );
 
-  Wine.associate = models => {
-    Wine.belongsTo(models.Collection, {
-      as: "wines"
-    });
-  };
+  // Wine.associate = models => {
+  //   Wine.belongsTo(models.Collection, {
+  //     as: "wines"
+  //   });
+  // };
   return Wine;
 };

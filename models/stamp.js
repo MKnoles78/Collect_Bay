@@ -2,9 +2,6 @@ module.exports = function (sequelize, DataTypes){
   const Stamp = sequelize.define("Stamp", {
     category: {
       type: DataTypes.STRING,
-      validate: {
-        equals: "Stamps"
-      }
     },
     origincountry: {
       type: DataTypes.STRING,
@@ -15,8 +12,7 @@ module.exports = function (sequelize, DataTypes){
       allowNull: false
     },
     postmark: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.STRING,
     },
     quality: {type: DataTypes.STRING,
       allowNull: false}
@@ -24,11 +20,11 @@ module.exports = function (sequelize, DataTypes){
   { timestamps: false }
   );
 
-  Stamp.associate = models => {
-    Stamp.belongsTo(models.Collection, {
-      as: "stamps"
-    });
-  };
+  // Stamp.associate = models => {
+  //   Stamp.belongsTo(models.Collection, {
+  //     as: "stamps"
+  //   });
+  // };
 
   return Stamp;
 };

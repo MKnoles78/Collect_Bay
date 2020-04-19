@@ -1,14 +1,10 @@
-// const express = require("express");
+const express = require("express");
 
-// const router = express.Router();
+const router = express.Router();
 
-// const db = require("../models");
+router.get("/cues", function (req, res) {
+  res.render("cues");
+});
 
-
-
-
-// module.exports = router;
-
-
-
+module.exports = router;
 

@@ -27,10 +27,10 @@ module.exports = function (sequelize, DataTypes){
   { timestamps: false }
   );
 
-  Wine.associate = models => {
-    Wine.belongsTo(models.Collection, {
-      as: "wines"
-    });
-  };
+  // Wine.associate = models => {
+  //   Wine.belongsTo(models.Collection, {
+  //     as: "wines"
+  //   });
+  // };
   return Wine;
 };

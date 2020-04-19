@@ -12,8 +12,7 @@ module.exports = function (sequelize, DataTypes){
       allowNull: false
     },
     postmark: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.STRING,
     },
     quality: {type: DataTypes.STRING,
       allowNull: false}

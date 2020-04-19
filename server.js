@@ -28,10 +28,12 @@ const comicsRoutes = require("./controllers/comicsController.js");
 const userRoutes = require("./controllers/userController.js");
 const cardsRoutes = require("./controllers/cardsController.js");
 const recordsRoutes = require("./controllers/recordsController.js");
+const stampsRoutes = require("./controllers/stampsController.js");
 // const cuesRoutes = require(".controllers/cuesController.js");
 app.use(comicsRoutes);
 app.use(cardsRoutes);
 app.use(recordsRoutes);
+app.use(stampsRoutes);
 app.use(userRoutes);
 // app.use(cuesRoutes);
 

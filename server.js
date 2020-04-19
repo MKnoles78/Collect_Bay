@@ -33,7 +33,7 @@ const winesRoutes = require("./controllers/winesController.js");
 const toysRoutes = require("./controllers/toysController.js");
 
 const cuesRoutes = require("./controllers/cuesController.js");
-const connectRoutes = require("./controllers/connectController.js");
+const connectsRoutes = require("./controllers/connectsController.js");
 
 
 app.use(comicsRoutes);
@@ -45,7 +45,7 @@ app.use(toysRoutes);
 app.use(userRoutes);
 
 app.use(cuesRoutes);
-app.use(connectRoutes);
+app.use(connectsRoutes);
 
 app.get("/", function (req, res) {
   res.render("index");

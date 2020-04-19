@@ -1,0 +1,85 @@
+<div class="ui blue inverted massive menu">
+      <a class="item">
+        CollectBay
+      </a>
+
+      <div class="right menu">
+        <a class="item" href="/collect">
+          Collect
+        </a>
+        <a class="item" href="/cues">
+          Cues
+        </a>
+        <a class="item" href="/connect">
+          Connect
+        </a>
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search..." />
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="ui raised very padded text container segment">
+<table class="ui blue inverted striped table">
+  <thead>
+    <div class="table-buttons" style="text-align: center">
+      <a href="/collect"><button class="ui button" scope="col">Comics</button></a>
+      <a href="/cards"><button class="ui button" scope="col">Cards</button></a>
+      <a href="/records"><button class="ui button" scope="col">Records</button></a>
+      <a href="/stamps"><button class="ui button" scope="col">Stamps</button></a>
+      <a href="/wines"><button class="ui button" scope="col">Wines</button></a>
+      <a href="/toys"><button class="ui button" scope="col">Toys</button></a>
+    </div>
+  </thead>
+</table>
+</div>
+
+<div id="toy-div">
+  <div class="ui grid"  style="justify-content: space-evenly">
+    <div class="three wide column">
+      <div>
+          <form class="ui form" id="new-toy-form">
+            <div class="field">
+              <label>Category</label>
+              <input type="text" id="toyCategory">
+              <label>Manufacturer</label>
+              <input type="text" id="toyManufacturer">
+              <label>Make</label>
+              <input type="text" id="toyMake">
+              <label>Model</label>
+              <input type="text" id="toyModel">
+              <label>Quality</label>
+              <input type="text" id="toyQuality">
+            </div>
+        <br> 
+        <button class="ui button" type="submit">Submit</button>
+        </form> 
+      </div>
+    </div>
+  <div class="twelve wide column">
+         <table class="ui celled table">
+          <thead>
+              <tr><th>Category</th>
+              <th>Manufacturer</th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>Quality</th>
+            </tr></thead>
+              <tbody>
+              {{#each toys}}
+                <tr>
+                  <td data-label="Category">{{category}}</td>
+                  <td data-label="Manufacturer">{{manufacturer}}</td>
+                  <td data-label="Make">{{make}}</td>
+                  <td data-label="Model">{{model}}</td>
+                  <td data-label="Quality">{{quality}}</td>
+                </tr>
+              {{/each}}
+              </tbody>
+          </table> 
+  </div>
+
+</div>
+</div>

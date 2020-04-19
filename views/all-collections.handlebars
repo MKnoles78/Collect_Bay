@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>All Collections</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        {{#each collections}}
+        <div class="col-sm-4">
+            <h3>{{name}}</h3>
+            <ul>
+                <li>ID: {{id}}</li>
+                <li>Item Number: {{itemNumber}}</li>
+                <li>Created On: {{createdAt}}</li>
+                <li>Updated On: {{updatedAt}}</li>
+            </ul>
+            <hr>
+            {{!-- <img src={{imageURL}} alt={{name}} style="width: 100%"> --}}
+        </div>
+        {{/each}}
+    </div>
+</div>

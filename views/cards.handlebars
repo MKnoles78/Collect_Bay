@@ -1,0 +1,102 @@
+<div class="ui blue inverted massive menu">
+      <a class="item">
+        CollectBay
+      </a>
+
+      <div class="right menu">
+        <a class="item" href="/collect">
+          Collect
+        </a>
+        <a class="item" href="/cues">
+          Cues
+        </a>
+        <a class="item" href="/connect">
+          Connect
+        </a>
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search..." />
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="ui raised very padded text container segment">
+<table class="ui blue inverted striped table">
+  <thead>
+  <div class="table-buttons" style="text-align: center">
+      <a href="/collect"><button class="ui button" scope="col">Comics</button></a>
+      <a href="/cards"><button class="ui button" scope="col">Cards</button></a>
+      <a href="/records"><button class="ui button" scope="col">Records</button></a>
+      <a href="/stamps"><button class="ui button" scope="col">Stamps</button></a>
+      <a href="/wines"><button class="ui button" scope="col">Wines</button></a>
+      <a href="/toys"><button class="ui button" scope="col">Toys</button></a>
+    </div>
+  </thead>
+</table>
+</div>
+
+<div id="card-div">
+  <div class="ui grid"  style="justify-content: space-evenly">
+    <div class="three wide column">
+      <div>
+          <form class="ui form" id="new-card-form">
+            <div class="field">
+              <label>Category</label>
+              <input type="text" id="cardCategory">
+              <label>Manufacturer</label>
+              <input type="text" id="cardManufacturer">
+              <label>Player</label>
+              <input type="text" id="cardPlayer">
+              <label>Year</label>
+              <input type="text" id="cardYear">
+              <label>Quality</label>
+              <input type="text" id="cardQuality">
+            </div>
+        <br>
+        <button class="ui button" type="submit">Submit</button>
+        </form> 
+      </div>
+    </div>
+  <div class="twelve wide column">
+         <table class="ui celled table">
+          <thead>
+              <tr><th>Category</th>
+              <th>Manufacturer</th>
+              <th>Player</th>
+              <th>Year</th>
+              <th>Quality</th>
+            </tr></thead>
+              <tbody>
+              {{#each cards}}
+                <tr>
+                  <td data-label="Category">{{category}}</td>
+                  <td data-label="Manufacturer">{{manufacturer}}</td>
+                  <td data-label="Player">{{player}}</td>
+                  <td data-label="Year">{{year}}</td>
+                  <td data-label="Quality">{{quality}}</td>
+                </tr>
+              {{/each}}
+              </tbody>
+          </table> 
+  </div>
+
+</div>
+</div>
+
+
+{{!-- <script>
+  
+  function tableSwitch() {
+   var comicTable = document.getElementById("comic-div"); 
+   var cardTable = document.getElementById("card-div");
+
+   comicTable.style.display = (
+       comicTable.style.display == "none" ? "block" : "none"); 
+   cardTable.style.display = (
+       cardTable.style.display == "none" ? "block" : "none"); 
+}
+</script> --}}
+
+
+

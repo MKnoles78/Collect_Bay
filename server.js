@@ -32,7 +32,7 @@ const stampsRoutes = require("./controllers/stampsController.js");
 const winesRoutes = require("./controllers/winesController.js");
 const toysRoutes = require("./controllers/toysController.js");
 const connectRoutes = require("./controllers/connectController.js");
-// const cuesRoutes = require(".controllers/cuesController.js");
+const cuesRoutes = require("./controllers/cuesController.js");
 app.use(comicsRoutes);
 app.use(cardsRoutes);
 app.use(recordsRoutes);
@@ -41,7 +41,7 @@ app.use(winesRoutes);
 app.use(toysRoutes);
 app.use(userRoutes);
 app.use(connectRoutes);
-// app.use(cuesRoutes);
+app.use(cuesRoutes);
 
 app.get("/", function (req, res) {
   res.render("index");

@@ -2,9 +2,6 @@ module.exports = function (sequelize, DataTypes){
   const Stamp = sequelize.define("Stamp", {
     category: {
       type: DataTypes.STRING,
-      validate: {
-        equals: "Stamps"
-      }
     },
     origincountry: {
       type: DataTypes.STRING,

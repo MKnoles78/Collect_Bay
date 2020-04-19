@@ -2,9 +2,6 @@ module.exports = function (sequelize, DataTypes){
   const Wine = sequelize.define("Wine", {
     category: {
       type: DataTypes.STRING,
-      validate: {
-        equals: "Wines"
-      }
     },
     vineyard: {
       type: DataTypes.STRING,

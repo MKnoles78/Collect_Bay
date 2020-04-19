@@ -2,9 +2,6 @@ module.exports = function (sequelize, DataTypes){
   const Record = sequelize.define("Record", {
     category: {
       type: DataTypes.STRING,
-      validate: {
-        equals: "Records"
-      }
     },
     artist: {
       type: DataTypes.STRING,
@@ -21,11 +18,11 @@ module.exports = function (sequelize, DataTypes){
   { timestamps: false }
   );
 
-  Record.associate = models => {
-    Record.belongsTo(models.Collection, {
-      as: "records"
-    });
+  // Record.associate = models => {
+  //   Record.belongsTo(models.Collection, {
+  //     as: "records"
+  //   });
 
-  };
+  // };
   return Record;
 };

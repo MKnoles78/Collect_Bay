@@ -1,4 +1,3 @@
-
 <div class="ui blue inverted massive menu">
       <a class="item">
         CollectBay
@@ -25,13 +24,13 @@
 <div class="ui raised very padded text container segment">
 <table class="ui blue inverted striped table">
   <thead>
-    <div class="table-buttons" style="text-align: center">
-      <button class="ui button" scope="col" id="comicBtn">Comics</button>
-      <a href="/card"><button class="ui button" scope="col" id="cardBtn">Cards</button></a>
-      <button class="ui button" scope="col" id="recordBtn">Records</button>
-      <button class="ui button" scope="col" id="stampBtn">Stamps</button>
-      <button class="ui button" scope="col" id="wineBtn">Wines</button>
-      <button class="ui button" scope="col" id="toyBtn">Toys</button>
+  <div class="table-buttons" style="text-align: center">
+      <a href="/collect"><button class="ui button" scope="col">Comics</button></a>
+      <a href="/cards"><button class="ui button" scope="col">Cards</button></a>
+      <a href="/records"><button class="ui button" scope="col">Records</button></a>
+      <a href="/stamps"><button class="ui button" scope="col">Stamps</button></a>
+      <a href="/wines"><button class="ui button" scope="col">Cards</button></a>
+      <a href="/toys"><button class="ui button" scope="col">Toys</button></a>
     </div>
   </thead>
 </table>
@@ -98,45 +97,6 @@
        cardTable.style.display == "none" ? "block" : "none"); 
 }
 </script> --}}
-<script>
-$("#new-card-form").on("submit", function (event) {
-    event.preventDefault();
-    console.log("you clicked me")
-    const newCard = {
-      category: $("#cardCategory").val(),
-      publisher: $("#cardManufacturer").val(),
-      title: $("#cardPlayer").val(),
-      issue: $("#cardYear").val(),
-      quality: $("#cardQuality").val()
-    };
-    console.log($("#cardCategory").val())
-    console.log(newCard),
-    $.ajax({
-      url: "/api/collections/cards",
-      method: "POST",
-      data: {
-        category: $("#cardCategory").val(),
-        manufacturer: $("#cardManufacturer").val(),
-        player: $("#cardPlayer").val(),
-        year: $("#cardYear").val(),
-        quality: $("#cardQuality").val(),
-      }
-    }).done(function (response) {
-      console.log(response);
-      if (response.success) {
-        $("#cardCategory").val(""),
-        $("#cardManufacturer").val(""),
-        $("#cardPlayer").val(""),
-        $("#cardYear").val(""),
-        $("#cardQuality").val(""),
-        setTimeout(function () {
-          window.location.replace("/cards");
-        }, 100);
-      }
-    });
-  });
 
-
-</script>
 
 

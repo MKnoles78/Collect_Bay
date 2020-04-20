@@ -47,16 +47,16 @@ app.use(userRoutes);
 app.use(connectRoutes);
 app.use(ebayRoutes);
 
-app.get("/", function (req, res) {
-  res.render("index");
-});
+// app.get("/", function (req, res) {
+//   res.render("index");
+// });
 
 
-app.get("/api/config", function (req, res) {
-  res.json({
-    success: true,
-  });
-});
+// app.get("/api/config", function (req, res) {
+//   res.json({
+//     success: true,
+//   });
+// });
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {

@@ -35,6 +35,8 @@ const toysRoutes = require("./controllers/toysController.js");
 const connectRoutes = require("./controllers/connectController.js");
 // const cuesRoutes = require("./controllers/cuesController.js");
 const ebayRoutes = require("./controllers/ebayController.js");
+
+
 app.use(comicsRoutes);
 app.use(cardsRoutes);
 app.use(recordsRoutes);

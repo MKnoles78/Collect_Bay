@@ -1,4 +1,4 @@
-# [CollectBay](https://collectbay.herokuapp.com/)
+# [CollectBay](https://stormy-oasis-62272.herokuapp.com/)
 
 ## Description:  
 CollectBay is an application to help the user keep track of their collections and search for things they might want to add to that collection.

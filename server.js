@@ -1,5 +1,6 @@
 const express = require("express");
 const Handlebars = require("handlebars");
+require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -34,6 +35,8 @@ const toysRoutes = require("./controllers/toysController.js");
 const connectRoutes = require("./controllers/connectController.js");
 // const cuesRoutes = require("./controllers/cuesController.js");
 const ebayRoutes = require("./controllers/ebayController.js");
+
+
 app.use(comicsRoutes);
 app.use(cardsRoutes);
 app.use(recordsRoutes);

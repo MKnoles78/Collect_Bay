@@ -7,9 +7,9 @@
     <a class="item" href="/ebay"><h4 class="ui white inverted header">Enhance</h4></a>
     <a class="item" href="/connect"><h4 class="ui white inverted header">Connect</h4></a>
     <div class="item">
-      <div class="ui icon input">
+      {{!-- <div class="ui icon input">
         <input type="text" placeholder="Search..." />
-        <i class="search link icon"></i>
+        <i class="search link icon"></i> --}}
       </div>
     </div>
   </div>
@@ -48,14 +48,15 @@
                     <hr>
                     <p>Ebay Link: <a href="{{viewItemURL}}">{{viewItemURL}}</a></p>
                     <hr>
-                    <button class="ui secondary button add-to-collection" data-itemid="{{itemId}}" data-title="{{title}}"
+                    {{!-- <button class="ui secondary button add-to-collection" data-itemid="{{itemId}}" data-title="{{title}}"
                         data-category="{{primaryCategory.[0].categoryName}}" data-location="{{location}}"
                         data-price="{{sellingStatus.[0].currentPrice.[0].__value__}}"
                         data-ebayurl="{{viewItemURL}}"
-                        data-image={{galleryURL}}>Add Collection</button>
+                        data-image={{galleryURL}}>Add Collection</button> --}}
                 </div>
             </div>
         </div>
         {{/each}}
     </div>
 </div>
+
